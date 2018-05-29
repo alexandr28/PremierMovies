@@ -1,19 +1,19 @@
-#App Premier Movies
+# App Premier Movies
 
 Esta app es un ejemplo usando diversar librerias y un archivo JSON
 
-###Librrias Android
+### Librrias Android
 ```
     implementation 'com.android.support:cardview-v7:27.1.1'
     implementation 'com.android.support:recyclerview-v7:27.1.1'
     implementation 'com.android.support:design:27.1.1'
 ```
-###Libreria Glide
+### Libreria Glide
 ```
     implementation 'com.github.bumptech.glide:glide:4.7.1'
     annotationProcessor 'com.github.bumptech.glide:compiler:4.7.1'
    ```
-###Libreria Vollery
+### Libreria Vollery
 ```
     implementation 'com.android.volley:volley:1.1.0'
 ```
