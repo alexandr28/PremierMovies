@@ -24,5 +24,12 @@ Esta app es un ejemplo usando diversar librerias y un archivo JSON
     
 ### Retrofit Library`
 ```
-    implementation 'com.squareup.retrofit2:retrofit:2.4.0'`
+    implementation 'com.squareup.retrofit2:retrofit:2.4.0'
+    implementation 'com.squareup.retrofit2:converter-gson:2.3.0'
 ```      
+
+### Usamos un JSON creado en Gist
+
+```
+https://gist.githubusercontent.com/alexandr28/d7c88b29b7ad71ede19b91445b2f040e/raw/72e1579bf377b7744090c6b4b3c1160b957e0c46/films.json
+``` 

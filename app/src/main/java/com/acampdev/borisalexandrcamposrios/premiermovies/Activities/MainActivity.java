@@ -4,8 +4,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
+import android.view.Window;
 
 import com.acampdev.borisalexandrcamposrios.premiermovies.Adapters.MovieAdapter;
+import com.acampdev.borisalexandrcamposrios.premiermovies.Apis.Client;
+import com.acampdev.borisalexandrcamposrios.premiermovies.Apis.Service;
+import com.acampdev.borisalexandrcamposrios.premiermovies.POJOS.ItemResponse;
 import com.acampdev.borisalexandrcamposrios.premiermovies.POJOS.Movie;
 import com.acampdev.borisalexandrcamposrios.premiermovies.R;
 import com.android.volley.RequestQueue;
@@ -13,12 +18,19 @@ import com.android.volley.Response;
 import com.android.volley.VolleyError;
 import com.android.volley.toolbox.JsonArrayRequest;
 import com.android.volley.toolbox.Volley;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import org.json.JSONArray;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 import java.util.List;
+
+import retrofit2.Call;
+import retrofit2.Callback;
+import retrofit2.Retrofit;
+import retrofit2.converter.gson.GsonConverterFactory;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -27,9 +39,10 @@ public class MainActivity extends AppCompatActivity {
     private RequestQueue requestQueue;
     private RecyclerView recyclerView;
     private List<Movie> moviesList;
+    private MovieAdapter movieAdapter;
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
+    protected void onCreate(Bundle savedInstanceState){
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
@@ -42,6 +55,7 @@ public class MainActivity extends AppCompatActivity {
     protected void onResume() {
         super.onResume();
     }
+
 
     private void jsonrequest(){
 
@@ -80,8 +94,9 @@ public class MainActivity extends AppCompatActivity {
 
     private void setupRecyclerView(List<Movie> movies){
 
-        MovieAdapter movieAdapter = new MovieAdapter(this,movies);
+        movieAdapter = new MovieAdapter(this,movies);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(movieAdapter);
     }
+
 }
